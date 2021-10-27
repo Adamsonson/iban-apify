@@ -5,13 +5,21 @@ describe 'Ibans API', type: :request do
   let!(:iban_two) { FactoryBot.create(:iban, name: 'greece', iban_number: 'GR35202111090000000001234567') }
 
   describe 'GET /api/v1/ibans' do
-    it 'returns all ibans' do
+    it '#index' do
       get '/api/v1/ibans'
 
       expect(response).to have_http_status(:success)
       expect(JSON.parse(response.body).size).to eq(2)
     end
-    context 'search by name param'
+
+    it '#show' do
+      get "/api/v1/ibans/#{iban.id}"
+
+      expect(response).to have_http_status(:success)
+      expect(JSON.parse(response.body).size).to eq(1)
+    end
+
+    context 'search by name param' do
       it 'returns 1 match' do
         get '/api/v1/ibans?name=alba'
 
@@ -25,6 +33,13 @@ describe 'Ibans API', type: :request do
         expect(response).to have_http_status(:success)
         expect(JSON.parse(response.body).size).to eq(0)
       end
+    end
+
+    it '#random' do
+      get '/api/v1/ibans/random'
+
+      expect(response).to have_http_status(:success)
+      expect(JSON.parse(response.body).size).to eq(1)
     end
   end
 

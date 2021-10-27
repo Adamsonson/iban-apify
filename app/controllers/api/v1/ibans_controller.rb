@@ -12,7 +12,11 @@ module Api
       end
 
       def show
-        render json: @iban
+        render json: [@iban]
+      end
+
+      def random
+        render json: [Iban.random]
       end
 
       def create
@@ -46,6 +50,7 @@ module Api
       end
 
       def set_iban
+        puts params[:id]
         @iban = Iban.find(params[:id])
       end
 
