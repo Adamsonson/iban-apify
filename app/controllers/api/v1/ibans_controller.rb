@@ -4,7 +4,11 @@ module Api
       before_action :set_iban, only: %i[show update destroy]
 
       def index
-        render json: Iban.all
+        if params[:name].present?
+          render json: Iban.where('name ILIKE ?', "%#{params[:name]}%")
+        else
+          render json: Iban.all
+        end
       end
 
       def show
