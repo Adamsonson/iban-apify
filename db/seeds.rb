@@ -3,5 +3,8 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+Iban.create([{ name: 'Albania', iban_number: 'AL35202111090000000001234567' },
+             { name: 'Cyprus', iban_number: 'CY21002001950000357001234567' },
+             { name: 'Greece', iban_number: 'GR9608100010000001234567890' },
+             { name: 'Italy', iban_number: 'IT60X0542811101000000123456' }])
