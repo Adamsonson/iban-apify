@@ -1,24 +1,45 @@
-# README
+# IBAN APIfier
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This projects aims to be an api server example for IBANs made based on the test assignment.
 
-Things you may want to cover:
+# CODING TEST NOTE
 
-* Ruby version
+I generally prefer to use the same database (usually PostgreSQL) in all environments, but I chose SQLite in development to make the evaluator's job easier when reviewing my project, since it requires zero setup.
 
-* System dependencies
+* Development and test: SQLite
+* Production: PostgreSQL
 
-* Configuration
+# Latest Ruby and Gems Versions
 
-* Database creation
+The project uses Rails 6.1.4 (API module) and Ruby 2.5.8 and intends to be kept up to date.
 
-* Database initialization
+# Setup
 
-* How to run the test suite
+Install dependencies and create the database with `bin/setup`.
 
-* Services (job queues, cache servers, search engines, etc.)
+# Run
 
-* Deployment instructions
+Just `rails server`.
 
-* ...
+# Test
+
+This project has been developed using TDD process and all code is tested using Rspec.
+Tests are re-launched automatically with every change to directories thanks to Guard gem.
+(https://github.com/guard/guard)
+Tests cover the Iban model validations and the Iban controller HTTP requests.
+
+Run `rspec`.
+
+# Todo Future List
+
+* Add Serialization for shown data
+* Add Authorization and Authentication functionality
+
+# Deploy
+
+* Commit to master (or open a pull request)
+* Push to github (https://github.com/Adamsonson/iban-apify)
+* Done (or accept the pull request)
+* Automatic deploy to Heroku launched
+
+Heroku: https://dashboard.heroku.com/apps/rocky-reaches-49290/deploy
